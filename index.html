@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="UDE Home">
+    <meta name="author" content="zhangjing5">
+
+    <title>UDE Home</title>
+
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.4-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/sticky-footer-navbar.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">anancds V2.0</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="files.html">Files</a></li>
+                    <li><a href="upload.html">Upload</a></li>
+                    <li><a href="tables.html">Tables</a></li>
+                    <li><a href="sql.html">SQL</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h2>anancds test project &nbsp;
+            <small>Management Platform</small>
+        </h2>
+            <br/>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>Summary</h2><br/>
+                <table class="table table-striped table-bordered table-hover">
+                    <colgroup>
+                        <col class="col-lg-2">
+                        <col class="col-lg-10">
+                    </colgroup>
+                    <tbody id="tbody">
+                        <tr>
+                            <td><b>Started：</b></td>
+                            <td>
+                                <p id="start_time" style="display: inline"></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Version：</b></td>
+                            <td>
+                                <p id="version" style="display: inline"></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Status：</b></td>
+                            <td>
+                                <p id="zk_status" style="display: inline"></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">&copy; anancds 2017</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="lib/jquery/jquery.js"></script>
+    <script type="text/javascript" src="lib/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+
+</html>
