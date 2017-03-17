@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Schemas">
+    <meta name="author" content="zhangjing5">
+    <meta name="author" content="xidachao">
+    <title>File Management</title>
+
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.4-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.4-dist/css/bootstrap-combined.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="css/sticky-footer-navbar.css">
+    </head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">anancds V2.0</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="files.html">Files</a></li>
+                <li><a href="upload.html">Upload</a></li>
+                <li><a href="tables.html">Tables</a></li>
+                <li><a href="sql.html">SQL</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>File Management</h2>
+        </div>
+        <div class="col-sm-6" align="right">
+            <br/>
+            <button id="createSchema" type="button" class="btn btn-success" title="Create Schema" onclick="createSchemaEvent()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+
+    <hr/>
+    <div class="row">
+        <div id="dynamic_container">
+        </div>
+        <br/>
+        <p><strong>Notes：</strong>All names in the table above are the name of <strong>folders</strong>, rather
+            than the name of the user tables.</p>
+    </div>
+
+    <div id="delete_model" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"><small>删除文件</small></h4>
+                </div>
+                <div class="modal-body" align="center">
+                    <small><p><font color="red">注意：一旦删除，文件将直接从HDFS上直接删除</font></p></small>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" onclick="deleteAction()">删除</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="upload_model" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"><small>上传文件</small></h4>
+                </div>
+                <div class="modal-body" align="center">
+                    <input type="file" id="file" name="file"><br/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="uploadAction()">上传</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="upload_SameName" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"><small>上传文件</small></h4>
+                </div>
+                <div class="modal-body" align="center">
+                    <p>注意：该文件名已经存在，如果需要覆盖请点击上传，否则取消，改文件名后重新上传</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="confirmUpload()">上传</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="notify_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-open">
+            <div class="modal-content">
+                <div class="modal-header" align="left">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">
+                        <small>消息提示</small>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div id="notify_panel">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">&copy; anancds 2017</p>
+    </div>
+</footer>
+
+<script type="text/javascript" src="lib/jquery/jquery.js"></script>
+<script type="text/javascript" src="lib/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="lib/ajaxfileupload/ajaxfileupload.js"></script>
+<script type="text/javascript" src="js/notify.js"></script>
+<script type="text/javascript" src="js/files.js"></script>
+</body>
+</html>
